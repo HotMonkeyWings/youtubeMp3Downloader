@@ -1,13 +1,19 @@
 import pafy
 import platform
-url = input("Enter video link: ")
-v = pafy.new(url)
-strm = v.getbestaudio()
-dest = input("Enter destination folder: ")
-if dest == '':
-	strm.download()
-else:
-	try:
-		strm.download(dest)
-	except:
-		print("Invalid destination")
+import tkinter as tk
+from tkinter import filedialog
+
+while 1:
+	url = input("Enter video link: ")
+	v = pafy.new(url)
+	strm = v.getbestaudio()
+
+	root = tk.Tk()
+	root.withdraw()
+	dest = filedialog.askdirectory()
+
+	strm.download(dest)
+
+	cont = input("Download again?(Y/n): ")
+	if(cont != 'Y' && cont != 'y'):
+		break
