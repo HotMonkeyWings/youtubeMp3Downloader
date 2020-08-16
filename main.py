@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pafy
 import platform
 import tkinter as tk
@@ -15,5 +17,5 @@ while 1:
 	strm.download(dest)
 
 	cont = input("Download again?(Y/n): ")
-	if(cont != 'Y' && cont != 'y'):
+	if(cont != 'Y' and cont != 'y'):
 		break
